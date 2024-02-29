@@ -7,10 +7,12 @@ public class UserServiceInterceptor implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
+        //MethodInvocation也是官方提供的接口
         long start = System.currentTimeMillis();
         try {
             return invocation.proceed();
         } finally {
+            System.out.println("UserServiceInterceptor implements MethodInterceptor ___ invoke");
             System.out.println("监控 - Begin By AOP");
             System.out.println("方法名称：" + invocation.getMethod());
             System.out.println("方法耗时：" + (System.currentTimeMillis() - start) + "ms");

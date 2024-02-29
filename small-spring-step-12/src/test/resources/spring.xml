@@ -11,6 +11,8 @@
         <property name="advice" ref="beforeAdvice"/>
     </bean>
 
+<!-- 层级关系为   pointcutAdvisor —— methodInterceptor —— beforeAdvice -->
+
     <bean id="pointcutAdvisor" class="cn.bugstack.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
         <property name="expression" value="execution(* cn.bugstack.springframework.test.bean.IUserService.*(..))"/>
         <property name="advice" ref="methodInterceptor"/>

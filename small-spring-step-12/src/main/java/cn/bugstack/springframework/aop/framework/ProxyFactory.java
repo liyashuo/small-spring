@@ -26,11 +26,18 @@ public class ProxyFactory {
         return createAopProxy().getProxy();
     }
 
+    /**
+     * JdkDynamicAopProxy implements AopProxy, InvocationHandler
+     * Cglib2AopProxy implements AopProxy
+     *
+     * @return AopProxy
+     */
     private AopProxy createAopProxy() {
+
         if (advisedSupport.isProxyTargetClass()) {
             return new Cglib2AopProxy(advisedSupport);
         }
-
+        //注意jdk还实现了InvocationHandler
         return new JdkDynamicAopProxy(advisedSupport);
     }
 

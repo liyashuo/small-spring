@@ -23,6 +23,7 @@ public class MethodBeforeAdviceInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         this.advice.before(methodInvocation.getMethod(), methodInvocation.getArguments(), methodInvocation.getThis());
+        System.out.println("除了before，这里MethodInterceptor是不是也可以拦截一下");
         return methodInvocation.proceed();
     }
 

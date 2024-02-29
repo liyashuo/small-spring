@@ -21,7 +21,7 @@ public class AdvisedSupport {
 
     // 被代理的目标对象
     private TargetSource targetSource;
-    // 方法拦截器
+    // 方法拦截器 org.aopalliance.intercept.MethodInterceptor，里面只有一个invoke方法
     private MethodInterceptor methodInterceptor;
     // 方法匹配器(检查目标方法是否符合通知条件)
     private MethodMatcher methodMatcher;
